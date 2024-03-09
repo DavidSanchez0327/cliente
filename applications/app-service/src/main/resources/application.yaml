@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "cliente"
+  devtools:
+    add-properties: false
+  datasource:
+    url: jdbc:mysql://aws.connect.psdb.cloud/cliente
+    username: ajhbggu084oj2j1g6jtm
+    password: pscale_pw_P62vmqAxGnPytoooZdy4RyzpiLZ0C9KlRieDqthy6np
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
