@@ -24,7 +24,7 @@ subprojects {
 
         testImplementation 'io.projectreactor.tools:blockhound-junit-platform:1.0.8.RELEASE'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
+        testImplementation 'junit:junit:4.11'
         testImplementation 'io.projectreactor:reactor-test'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         compileOnly "org.projectlombok:lombok:${lombokVersion}"

@@ -1,6 +1,7 @@
 package co.com.sofka.jpa.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -12,15 +13,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cliente")
+@Table(name = "client")
+@Entity
 public class CustomerEntity {
     @Id
-    @Column(name = "clienteid")
+    @Column(name = "id")
     private String id;
-    @Column(name = "contrasena")
-    private String contrasena;
-    @Column(name = "estado")
-    private Boolean estado;
-    @Column(name = "personaId")
-    private String personaId;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "state")
+    private Boolean state;
+    @Column(name = "personid")
+    private String personId;
 }

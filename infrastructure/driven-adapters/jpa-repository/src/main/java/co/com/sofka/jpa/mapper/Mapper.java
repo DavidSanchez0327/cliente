@@ -7,44 +7,36 @@ import co.com.sofka.model.Person;
 
 public interface Mapper {
 
-    default CustomerEntity mapToCustomerEntity(Customer customer) {
-        return CustomerEntity.builder()
-                .id(customer.getId())
-                .contrasena(customer.getContrasena())
-                .estado(customer.getEstado())
-                .personaId(customer.getPersonaId())
-                .build();
 
+
+    default CustomerEntity createCustomerEntity(Customer customer) {
+        return new CustomerEntity(customer.id(),customer.password(),customer.state(),customer.personId());
     }
-
-    default Customer mapToCustomer (CustomerEntity customer) {
+    default Customer createCustomer(CustomerEntity customerEntity) {
         return Customer.builder()
-                .id(customer.getId())
-                .contrasena(customer.getContrasena())
-                .estado(customer.getEstado())
-                .personaId(customer.getPersonaId())
+                .id(customerEntity.getId())
+                .password(customerEntity.getPassword())
+                .state(customerEntity.getState())
+                .personId(customerEntity.getPersonId())
                 .build();
-
     }
-    default PersonEntity mapToPersonEntity(Person person) {
-        return PersonEntity.builder()
-                .identificacion(person.getIdentificacion())
-                .edad(person.getEdad())
-                .direccion(person.getDireccion())
-                .nombre(person.getNombre())
-                .telefono(person.getTelefono())
-                .build();
-
+    default PersonEntity createPersonEntity(Person person) {
+        return new PersonEntity(person.id(), person.gender(), person.address(),person.phone(),person.identityId(),person.name(),person.age(),person.state());
     }
 
-    default Person mapToPerson (PersonEntity personEntity) {
+
+
+
+    default Person createPerson(PersonEntity personEntity) {
         return Person.builder()
-                .identificacion(personEntity.getIdentificacion())
-                .edad(personEntity.getEdad())
-                .direccion(personEntity.getDireccion())
-                .nombre(personEntity.getNombre())
-                .telefono(personEntity.getTelefono())
+                .id(personEntity.getId())
+                .identityId(personEntity.getIdentityId())
+                .name(personEntity.getName())
+                .gender(personEntity.getGender())
+                .age(personEntity.getAge())
+                .address(personEntity.getAddress())
+                .phone(personEntity.getPhone())
+                .state(personEntity.getState())
                 .build();
-
     }
 }

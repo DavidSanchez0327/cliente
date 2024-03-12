@@ -1,7 +1,7 @@
 dependencies {
     implementation project(':model')
 
-
+    implementation 'org.postgresql:postgresql:42.2.27'
     implementation "mysql:mysql-connector-java:8.0.33"
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '3.2.3'

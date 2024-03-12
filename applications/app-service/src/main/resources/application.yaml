@@ -1,14 +1,21 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   application:
     name: "cliente"
   devtools:
     add-properties: false
   datasource:
-    url: jdbc:mysql://aws.connect.psdb.cloud/cliente
-    username: ajhbggu084oj2j1g6jtm
-    password: pscale_pw_P62vmqAxGnPytoooZdy4RyzpiLZ0C9KlRieDqthy6np
+    url: jdbc:postgresql://ep-bitter-night-a5h53da2.us-east-2.aws.neon.tech/client
+    username: root
+    password: H0NciupOW7yG
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      dll-auto: update
 management:
   endpoints:
     web:
@@ -18,5 +25,3 @@ management:
     health:
       probes:
         enabled: true
-cors:
-  allowed-origins: "http://localhost:4200,http://localhost:8080"
