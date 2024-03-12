@@ -18,7 +18,7 @@ import static co.com.sofka.api.dto.CustomerDto.from;
 
 
 @RestController
-@RequestMapping(value = "/v1/clientes")
+@RequestMapping(value = "/v1/customers")
 @RequiredArgsConstructor
 public class CustomerController {
 
@@ -39,10 +39,12 @@ public class CustomerController {
                 .map(CustomerDto::fromDto);
     }
 
-    @PutMapping()
-    public Mono<CustomerDto> updateCustomer(@RequestBody CustomerDto customerDto) {
+    @PutMapping("/{id}")
+    public Mono<CustomerDto> updateCustomer(@PathVariable("id") String id,
+                                            @RequestBody CustomerDto customerDto) {
 
         return updateCustomerUseCase.updateCustomer(from(customerDto).toBuilder()
+                        .id(id)
                         .person(PersonDto.from(customerDto.person()))
                         .build())
                 .map(CustomerDto::fromDto);

@@ -36,7 +36,7 @@ public class CreateCustomerUseCaseTest {
 
 
     @Test
-    void testcreateCustomer() {
+    void testCreateCustomer() {
 
         Person person = Person.builder()
                 .id("123456")
